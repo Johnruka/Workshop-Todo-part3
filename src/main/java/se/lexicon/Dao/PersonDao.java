@@ -1,5 +1,7 @@
 package se.lexicon.Dao;
 
+import se.lexicon.model.Person;
+
 import java.util.Collection;
 
 public interface PersonDao {

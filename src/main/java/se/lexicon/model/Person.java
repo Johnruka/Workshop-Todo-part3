@@ -1,51 +1,60 @@
 package se.lexicon.model;
 
-import java.util.Arrays;
+
+import java.util.Objects;
 
 public class Person {
 
-    private final int id;
-    public Object setAssigned;
+    private Integer id;
     private String firstName;
     private String lastName;
     private String email;
-    private Person person;
-    private boolean done;
 
-    private int[] AssignedAppointments;
+    private AppUser credentials;
 
-    public Person(int id, String firstName, String lastName, String email) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.AssignedAppointments = new int[0];
-        this.person = person;
-
-
+    public Person() {
     }
 
+    public Person(String firstName, String lastName, String email, AppUser credentials) {
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
+
+        setCredentials(credentials);
+    }
+
+    public Person(Integer id, String firstName, String lastName, String email, AppUser credentials) {
+        this(firstName, lastName, email, credentials);
+        if (id == null) throw new RuntimeException("id is null");
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
     }
 
-
     public void setFirstName(String firstName) {
-        if (firstName == null) throw new IllegalArgumentException("FirstName cannot be null");
+        if (firstName == null || firstName.trim().isEmpty())
+            throw new IllegalArgumentException("firstName is null or empty.");
         this.firstName = firstName;
     }
-
 
     public String getLastName() {
         return lastName;
     }
 
-
     public void setLastName(String lastName) {
-        if (lastName == null) throw new IllegalArgumentException("LastName cannot be null");
+        if (lastName == null || lastName.trim().isEmpty())
+            throw new IllegalArgumentException("lastName is null or empty.");
         this.lastName = lastName;
-
     }
 
     public String getEmail() {
@@ -53,51 +62,47 @@ public class Person {
     }
 
     public void setEmail(String email) {
-        if (email == null) throw new IllegalArgumentException("Email cannot be null");
+        if (email == null || email.trim().isEmpty())
+            throw new IllegalArgumentException("email is null or empty.");
         this.email = email;
-
     }
 
-    public int getId() {
-        return id;
-
+    public AppUser getCredentials() {
+        return credentials;
     }
 
-    public String getPersonInformation() {
-        return "Person{ id=" + id + ", firstName='" + firstName + ", lastName='" + lastName +
-                ",email='" + email;
-
-
+    public void setCredentials(AppUser credentials) {
+        if (credentials == null) throw new IllegalArgumentException("credentials is null.");
+        this.credentials = credentials;
     }
 
-    public String getSummary(String summary) {
-        return summary;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return id == person.id && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(email, person.email);
     }
 
-
-    public String getAssigneeInformation() {
-        return "person{ id=" + id + ", firstName='" + firstName + ", lastName='" + lastName +
-                ",email='" + email;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, email);
     }
 
-    public String setAssigned(String assigned) {
-        return assigned;
-
-    }
-
-    public void setAssignee(String appointment) {
-        int[] newArray = Arrays.copyOf(AssignedAppointments(), AssignedAppointments().length + 1);
-        int Appointment = 0;
-        newArray[newArray.length - 1] = Appointment;
-        AssignedAppointments = newArray;
-
-
-    }
-
-    private int[] AssignedAppointments() {
-        return new int[0];
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
+
+
+
+
 
 
 
