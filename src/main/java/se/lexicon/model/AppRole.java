@@ -1,5 +1,5 @@
 package se.lexicon.model;
 
 public enum AppRole {
-    APP_ADMIN, APP_USER
+    APP_ADMIN, role, APP_USER
 }

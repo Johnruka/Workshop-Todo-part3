@@ -21,7 +21,7 @@ public class AppUser {
         return username;
     }
 
-    public static void remove(se.lexicon.Dao.AppUser appUser) {
+    public static void remove(AppUser appUser) {
 
     }
 
@@ -57,7 +57,7 @@ public class AppUser {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        se.lexicon.Dao.AppUser appUser = (se.lexicon.Dao.AppUser) o;
+        AppUser appUser = (AppUser) o;
         return Objects.equals(username, username) && role == AppRole.role;
     }
 
