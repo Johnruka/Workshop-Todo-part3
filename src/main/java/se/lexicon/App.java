@@ -14,6 +14,8 @@ public class App {
         System.out.println(appointment1.getAppointmentInformation());
         System.out.println(appointment2.getAppointmentInformation());
 
+        System.out.println(".........................");
+
 
 
 
@@ -23,25 +25,24 @@ public class App {
 
         //Before Appointment
         System.out.println("person information:");
-        System.out.println(person1.getPersonInformation());
-        System.out.println(person2.getPersonInformation());
+
         System.out.println();
 
         //AutoExpert
-        Person assignee1 = person2;
         Person assignee2 = person1;
+        Person assignee1 = person2;
 
         System.out.println("Assignee information:");
-        System.out.println(AutoExpert.getAssigneeInformation());
-        System.out.println(AutoExpert.getAssigneeInformation());
-        System.out.println();
+        System.out.println(AutoExpert.setAssignee(String.valueOf(person2)));
+        System.out.println(AutoExpert.setAssignee(String.valueOf(assignee2)));
+        System.out.println("...................................");
 
         AutoExpert.setAssignee(String.valueOf(appointment2));
 
         //After Assigned
         System.out.println("person information:");
 
-        System.out.println();
+        System.out.println(".................................................");
 
         // User
         AppUser user1 = new AppUser("davis", "55555", AppRole.APP_USER);
