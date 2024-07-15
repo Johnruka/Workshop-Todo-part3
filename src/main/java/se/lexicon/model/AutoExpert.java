@@ -5,17 +5,21 @@ import java.util.UUID;
 
 public class AutoExpert {
 
-    private int id;
+    private static int id;
     private boolean assigned;
-    private Appointment appointment;
+    private static Appointment appointment;
     private Person assignee;
 
-    public AutoExpert(int id) {
+    public AutoExpert(int id, Appointment appointment, Person assignee) {
         this.id = Integer.parseInt(UUID.randomUUID().toString());
         this.appointment = Objects.requireNonNull(appointment, "AppointmentInfo cannot be null");
         this.assigned = true;
 
     }
+    public AutoExpert(int id) {
+        this.id = id;
+
+}
 
     public int getId() {
         return id;
@@ -37,11 +41,11 @@ public class AutoExpert {
         return assignee;
     }
 
-    public Person setAssignee(Person assignee) {
+    public static String setAssignee(String assignee) {
         return assignee;
     }
 
-    public String getAssigneeInformation() {
+    public static String getAssigneeInformation() {
         String creatorInfo = appointment != null ? " PersonId: " + appointment.getId() : "-";
         return String.format("AssigneeInformation{ id=%s, ChangeTires=%s, done=%b, creator=%s }", id, creatorInfo);
     }

@@ -21,12 +21,14 @@ public class Person {
         setEmail(email);
 
         setCredentials(credentials);
+
     }
 
-    public Person(Integer id, String firstName, String lastName, String email, AppUser credentials) {
-        this(firstName, lastName, email, credentials);
-        if (id == null) throw new RuntimeException("id is null");
-        this.id = id;
+    public Person(String firstName, String lastName, String email) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
+
     }
 
     public Integer getId() {
@@ -97,6 +99,10 @@ public class Person {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    public boolean getPersonInformation() {
+        return getPersonInformation();
     }
 }
 
