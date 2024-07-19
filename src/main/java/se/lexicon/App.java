@@ -1,6 +1,8 @@
 package se.lexicon;
 
 
+import se.lexicon.Dao.Sequencer.AppointmentSequencer;
+import se.lexicon.Dao.Sequencer.AutoExpertSequencer;
 import se.lexicon.Dao.Sequencer.PersonSequencer;
 import se.lexicon.model.*;
 
@@ -8,8 +10,8 @@ public class App {
     public static void main( String[] args ) {
 
         // Appointment
-        Appointment appointment1 = new Appointment(25565);
-        Appointment appointment2 = new Appointment(356894);
+        Appointment appointment1 = new Appointment(AppointmentSequencer.nextId());
+        Appointment appointment2 = new Appointment(AppointmentSequencer.nextId());
 
         System.out.println("Appointment information:");
         System.out.println(appointment1.getAppointmentInformation());
@@ -40,8 +42,10 @@ public class App {
         Person assignee1 = person2;
 
         System.out.println("Assignee information:");
-        System.out.println(AutoExpert.setAssignee(String.valueOf(person2)));
-        System.out.println(AutoExpert.setAssignee(String.valueOf(assignee2)));
+        System.out.println(assignee1.getId());
+        System.out.println(assignee2.getId());
+        System.out.println(assignee2.getPersonInformation());
+        System.out.println(assignee1.getPersonInformation());
         System.out.println("...................................");
 
         AutoExpert.setAssignee(String.valueOf(appointment2));

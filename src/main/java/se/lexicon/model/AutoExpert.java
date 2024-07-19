@@ -1,5 +1,7 @@
 package se.lexicon.model;
 
+import se.lexicon.Dao.Sequencer.AutoExpertSequencer;
+
 import java.util.Objects;
 import java.util.UUID;
 
@@ -11,7 +13,7 @@ public class AutoExpert {
     private Person assignee;
 
     public AutoExpert(int id, Appointment appointment, Person assignee) {
-        this.id = Integer.parseInt(UUID.randomUUID().toString());
+        this.id = AutoExpertSequencer.nextId();
         this.appointment = Objects.requireNonNull(appointment, "AppointmentInfo cannot be null");
         this.assigned = true;
 
@@ -22,7 +24,7 @@ public class AutoExpert {
 }
 
     public int getId() {
-        return id;
+        return AutoExpertSequencer.nextId();
     }
 
     public boolean setAssigned(boolean assigned) {

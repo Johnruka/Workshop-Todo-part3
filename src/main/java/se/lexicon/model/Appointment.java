@@ -1,5 +1,7 @@
 package se.lexicon.model;
 
+import se.lexicon.Dao.Sequencer.AppointmentSequencer;
+
 import java.time.LocalDate;
 
 public class Appointment {
@@ -11,7 +13,7 @@ public class Appointment {
     private Person creator;
 
     public Appointment(int id, String ChangeTires, LocalDate deadLine) {
-        this.id = id;
+        this.id = AppointmentSequencer.nextId();
         this.ChangeTires = ChangeTires;
         this.deadLine = deadLine;
 
@@ -22,7 +24,7 @@ public class Appointment {
     }
 
     public int getId() {
-        return id;
+        return AppointmentSequencer.nextId();
     }
 
 
