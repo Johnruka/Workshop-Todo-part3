@@ -11,8 +11,11 @@ public class AutoExpert {
     private boolean assigned;
     private static Appointment appointment;
     private Person assignee;
+    private AppRole Admin;
+    private AppRole Creator;
 
     public AutoExpert(int id, Appointment appointment, Person assignee) {
+        this.Creator = AppRole.APP_ADMIN;
         this.id = AutoExpertSequencer.nextId();
         this.appointment = Objects.requireNonNull(appointment, "AppointmentInfo cannot be null");
         this.assigned = true;

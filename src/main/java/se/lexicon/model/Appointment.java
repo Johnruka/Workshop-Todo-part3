@@ -10,9 +10,10 @@ public class Appointment {
     private String ChangeTires;
     private LocalDate deadLine;
     private boolean done;
-    private Person creator;
+    private AppRole creator;
 
-    public Appointment(int id, String ChangeTires, LocalDate deadLine) {
+    public Appointment(int id, String ChangeTires, LocalDate deadLine, Person creator) {
+        this.creator = AppRole.APP_ADMIN;
         this.id = AppointmentSequencer.nextId();
         this.ChangeTires = ChangeTires;
         this.deadLine = deadLine;
@@ -50,7 +51,7 @@ public class Appointment {
         return done;
     }
 
-    public Person getCreator() {
+    public AppRole getCreator() {
         return creator;
     }
 
