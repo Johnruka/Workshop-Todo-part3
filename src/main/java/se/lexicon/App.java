@@ -25,6 +25,7 @@ public class App {
 
         //Before Appointment
         System.out.println("Person information:");
+        System.out.println(person1.getId());
         System.out.println(person1.getPersonInformation());
         System.out.println(person2.getPersonInformation());
 

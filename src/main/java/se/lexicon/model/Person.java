@@ -102,6 +102,11 @@ public class Person {
     }
 
     public String getPersonInformation() {
-        return (firstName + lastName + email);
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
