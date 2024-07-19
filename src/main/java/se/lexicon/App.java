@@ -1,6 +1,7 @@
 package se.lexicon;
 
 
+import se.lexicon.Dao.Sequencer.PersonSequencer;
 import se.lexicon.model.*;
 
 public class App {
@@ -20,12 +21,14 @@ public class App {
 
 
         //Person
-        Person person1 = new Person("David", "Land","david@gmail.com");
+        Person person1 = new Person("David", "Land", "david@gmail.com");
         Person person2 = new Person("John", "Lund", "john@gmail.com");
 
         //Before Appointment
         System.out.println("Person information:");
-        System.out.println(person1.getId());
+        System.out.println(PersonSequencer.nextId());
+        System.out.println(person1.setId(PersonSequencer.nextId()));
+        System.out.println(person2.setId(PersonSequencer.nextId()));
         System.out.println(person1.getPersonInformation());
         System.out.println(person2.getPersonInformation());
 

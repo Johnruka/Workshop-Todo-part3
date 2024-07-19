@@ -1,6 +1,8 @@
 package se.lexicon.model;
 
 
+import se.lexicon.Dao.Sequencer.PersonSequencer;
+
 import java.util.Objects;
 
 public class Person {
@@ -24,6 +26,12 @@ public class Person {
 
     }
 
+    public Person(String firstName, String lastName, String email,Integer id) {
+        this.id = PersonSequencer.nextId();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
     public Person(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -35,8 +43,9 @@ public class Person {
         return id;
     }
 
-    public void setId(Integer id) {
+    public int setId(Integer id) {
         this.id = id;
+        return PersonSequencer.nextId();
     }
 
     public String getFirstName() {
