@@ -25,9 +25,9 @@ public class Person {
     }
 
     public Person(String firstName, String lastName, String email) {
-      this.firstName = firstName;
-      this.lastName = lastName;
-      this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
 
     }
 
@@ -101,15 +101,7 @@ public class Person {
                 '}';
     }
 
-    public boolean getPersonInformation() {
-        return getPersonInformation();
+    public String getPersonInformation() {
+        return (firstName + lastName + email);
     }
 }
-
-
-
-
-
-
-
-

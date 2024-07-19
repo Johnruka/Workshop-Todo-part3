@@ -24,9 +24,12 @@ public class App {
         Person person2 = new Person("John", "Lund", "john@gmail.com");
 
         //Before Appointment
-        System.out.println("person information:");
+        System.out.println("Person information:");
+        System.out.println(person1.getPersonInformation());
+        System.out.println(person2.getPersonInformation());
 
-        System.out.println();
+
+        System.out.println("..............................");
 
         //AutoExpert
         Person assignee2 = person1;
